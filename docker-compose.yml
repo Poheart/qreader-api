@@ -1,0 +1,20 @@
+services:
+  qreader-api:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_SIZE=${MODEL_SIZE:-s}
+      - MAX_UPLOAD_SIZE_MB=${MAX_UPLOAD_SIZE_MB:-5}
+      - API_KEY=${API_KEY:-}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      start_period: 60s
+      retries: 3
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    restart: unless-stopped

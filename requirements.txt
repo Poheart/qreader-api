@@ -1,0 +1,6 @@
+fastapi>=0.110,<1
+uvicorn[standard]>=0.29,<1
+python-multipart>=0.0.9,<1
+qreader>=3.14,<4
+opencv-python-headless>=4.9,<5
+numpy>=1.26,<2
