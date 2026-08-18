@@ -9,7 +9,7 @@ services:
       - API_KEY=${API_KEY:-}
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
-      interval: 30s
+      interval: 5m
       timeout: 5s
       start_period: 60s
       retries: 3
