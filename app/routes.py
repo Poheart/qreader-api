@@ -87,7 +87,7 @@ async def scan_image_advanced(request: Request, imageFile: UploadFile = File(...
     ]
 
     return BarcodeAdvancedScanResult(
-        Successful=True,
+        Successful=len(barcodes) > 0,
         ResultBarcodes=barcodes,
         BarcodeCount=len(barcodes),
     )
